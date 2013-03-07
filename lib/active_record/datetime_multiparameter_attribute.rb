@@ -1,4 +1,4 @@
-module Models
+module ActiveRecord
   # ActiveRecord (temporal) extension to handle 2-field datetime attribute assignment
   module DatetimeMultiparameterAttribute
     private
