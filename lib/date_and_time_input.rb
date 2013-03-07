@@ -4,5 +4,5 @@ end
 
 if defined?(::ActiveRecord)
   require "active_record/datetime_multiparameter_attribute"
-  ActiveRecord::Base.send :include, DatetimeMultiparameterAttribute
+  ActiveRecord::Base.send :include, ActiveRecord::DatetimeMultiparameterAttribute
 end
