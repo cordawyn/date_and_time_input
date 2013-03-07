@@ -5,7 +5,7 @@ module ActionView
       POSITION = { :date => 1, :time => 2 }.freeze
 
       def date_and_time_field(object_name, method, options = {}, html_options = {})
-        InstanceTag.new(object_name, method, self, options.delete(:object)).to_date_and_time_field_tag(options, html_options)
+        InstanceTag.new(object_name, method, self, options.delete(:object)).to_date_and_time_field_tag(options, html_options).html_safe
       end
     end
 
@@ -15,6 +15,7 @@ module ActionView
         html_options = html_options.stringify_keys
 
         options["include_position"] = true unless options.has_key?("include_position")
+        options["prefix"] ||= @object_name
 
         html_options["value"] = html_options.fetch("value"){ value_before_type_cast(object) }
         html_options["value"] &&= ERB::Util.html_escape(html_options["value"])
