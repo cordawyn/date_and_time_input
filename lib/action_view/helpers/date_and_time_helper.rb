@@ -1,7 +1,7 @@
 module ActionView
   module Helpers
     module DateAndTimeHelper
-      DEFAULT_PREFIX = 'date'.freeze
+      DEFAULT_PREFIX = 'object'.freeze
       POSITION = { :date => 1, :time => 2 }.freeze
 
       def date_and_time_field(object_name, method, options = {}, html_options = {})
@@ -13,6 +13,9 @@ module ActionView
       def to_date_and_time_field_tag(options = {}, html_options = {})
         options = options.stringify_keys
         html_options = html_options.stringify_keys
+
+        options["include_position"] = true unless options.has_key?("include_position")
+
         html_options["value"] = html_options.fetch("value"){ value_before_type_cast(object) }
         html_options["value"] &&= ERB::Util.html_escape(html_options["value"])
         { date: value_to_date(html_options["value"]),
@@ -42,7 +45,7 @@ module ActionView
         prefix = options["prefix"] || ActionView::Helpers::DateAndTimeHelper::DEFAULT_PREFIX
         prefix += "[#{options['index']}]" if options.has_key?("index")
 
-        field_name = options["field_name"] || type
+        field_name = method_name.dup
         if options["include_position"]
           field_name += "(#{ActionView::Helpers::DateAndTimeHelper::POSITION[type]})"
         end
@@ -53,7 +56,7 @@ module ActionView
       # Returns the id attribute for the input tag.
       #  => "post_written_on_1"
       def input_id_from_type(type, options = {})
-        id = input_name_from_type(type).gsub(/([\[\(])|(\]\[)/, '_').gsub(/[\]\)]/, '')
+        id = input_name_from_type(type, options).gsub(/([\[\(])|(\]\[)/, '_').gsub(/[\]\)]/, '')
         id = options["namespace"] + '_' + id if options["namespace"]
 
         id
