@@ -1,6 +1,6 @@
 # DateAndTimeInput
 
-DateAndTimeInput is a Formtastic extension, providing a form input for DateTime attributes
+DateAndTimeInput is a Rails extension, providing a form input for DateTime attributes
 arranged as two input fields, for date and time, respectively.
 
 ## Installation
@@ -9,10 +9,14 @@ arranged as two input fields, for date and time, respectively.
 
 ## Usage
 
-To use DateAndTimeInput in your view templates using Formtastic's `semantic_form_for`,
+To use DateAndTimeInput in your view templates,
 you need to specify the input presentation as follows:
 
-    f.input :sent_at, as: :date_and_time_input
+    datetime_field :letter, :sent_at
+
+or, as a `form_for` field:
+
+    f.datetime_field :sent_at
 
 and that's it.
 

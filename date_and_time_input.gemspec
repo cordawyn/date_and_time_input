@@ -5,9 +5,9 @@ Gem::Specification.new do |gem|
   gem.version     = ("$Release: 0.0.1 $" =~ /[\.\d]+/) && $&
   gem.platform    = Gem::Platform::RUBY
   gem.homepage    = "https://github.com/cordawyn/date_and_time_input"
-  gem.summary     = "Formtastic extension for Datetime 2-field inputs"
+  gem.summary     = "Rails extension for Datetime 2-field inputs"
   gem.description = <<HERE
-DateAndTimeInput is a Formtastic extension, providing a form input for DateTime attributes
+DateAndTimeInput is a Rails extension, providing a form input for DateTime attributes
 arranged as two input fields, for date and time, respectively.
 HERE
 
@@ -16,7 +16,7 @@ HERE
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ["lib"]
 
-  gem.add_dependency("formtastic")
+  gem.add_dependency "actionpack", "~> 3.2.0"
 
   gem.license = "The MIT License (MIT)"
   gem.extra_rdoc_files = ['README.md']
