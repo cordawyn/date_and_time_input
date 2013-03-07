@@ -11,7 +11,7 @@ DateAndTimeInput is a Rails extension, providing a form input for DateTime attri
 arranged as two input fields, for date and time, respectively.
 HERE
 
-  gem.files         = `git ls-files`.split($\)
+  gem.files         = `git ls-files`.split($\) - ["Gemfile.lock"]
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ["lib"]
