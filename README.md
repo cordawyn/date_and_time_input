@@ -12,11 +12,11 @@ arranged as two input fields, for date and time, respectively.
 To use DateAndTimeInput in your view templates,
 you need to specify the input presentation as follows:
 
-    datetime_field :letter, :sent_at
+    date_and_time_field :letter, :sent_at
 
 or, as a `form_for` field:
 
-    f.datetime_field :sent_at
+    f.date_and_time :sent_at
 
 and that's it.
 
