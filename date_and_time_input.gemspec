@@ -2,7 +2,7 @@ Gem::Specification.new do |gem|
   gem.name        = 'date_and_time_input'
   gem.authors     = ['Slava Kravchenko']
   gem.email       = ['slava.kravchenko@gmail.com']
-  gem.version     = ("$Release: 0.0.1 $" =~ /[\.\d]+/) && $&
+  gem.version     = ("$Release: 0.0.2 $" =~ /[\.\d]+/) && $&
   gem.platform    = Gem::Platform::RUBY
   gem.homepage    = "https://github.com/cordawyn/date_and_time_input"
   gem.summary     = "Rails extension for Datetime 2-field inputs"
